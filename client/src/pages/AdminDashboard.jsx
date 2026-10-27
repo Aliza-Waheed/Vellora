@@ -4,6 +4,7 @@ import { Package, ShoppingCart, Tag, Star, Image, Plus, Edit, Trash2, CheckCircl
 import { useAuth } from '../context/AuthContext';
 import { useShop } from '../context/ShopContext';
 import { api } from '../services/api';
+import { handleImageError } from '../utils/imageHelper';
 
 export const AdminDashboard = () => {
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ export const AdminDashboard = () => {
     const [newProd, setNewProd] = useState({
         name: '',
         brand: 'Vellora Festive',
-        categoryId: 'cat-dresses',
+        categoryId: 'cat-chiffon',
         price: 4950,
         originalPrice: 6500,
         discountPercent: 24,
@@ -242,7 +243,7 @@ export const AdminDashboard = () => {
                                 {products.map((p) => (
                                     <tr key={p.id} className="hover:bg-gray-50">
                                         <td className="p-3 flex items-center gap-3">
-                                            <img src={p.images?.[0]} alt="" className="w-10 h-12 object-cover rounded border border-[#E8DFD8]" />
+                                            <img src={p.images?.[0]} alt="" onError={handleImageError} className="w-10 h-12 object-cover rounded border border-[#E8DFD8]" />
                                             <div>
                                                 <span className="font-bold text-[#2C1810] block line-clamp-1">{p.name}</span>
                                                 <span className="text-[10px] text-gray-400">{p.brand}</span>
@@ -334,7 +335,7 @@ export const AdminDashboard = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {categories.map((c) => (
                             <div key={c.id} className="bg-[#FAF6F0] p-4 rounded-xl border border-[#E8DFD8] flex items-center gap-4">
-                                <img src={c.image} alt="" className="w-16 h-16 object-cover rounded-lg border border-[#E8DFD8]" />
+                                <img src={c.image} alt="" onError={handleImageError} className="w-16 h-16 object-cover rounded-lg border border-[#E8DFD8]" />
                                 <div>
                                     <h4 className="font-serif font-bold text-sm text-[#2C1810]">{c.name}</h4>
                                     <p className="text-xs text-gray-500 mt-0.5">{c.description}</p>
@@ -417,10 +418,19 @@ export const AdminDashboard = () => {
                                         onChange={(e) => setNewProd({ ...newProd, categoryId: e.target.value })}
                                         className="w-full p-2.5 border rounded-lg font-semibold"
                                     >
-                                        <option value="cat-dresses">Pakistani Dresses</option>
-                                        <option value="cat-skincare">Organic Skincare</option>
-                                        <option value="cat-cosmetics">Cosmetics</option>
-                                        <option value="cat-jewelry">Royal Jewelry</option>
+                                        {categories && categories.length > 0 ? (
+                                            categories.map(c => (
+                                                <option key={c.id} value={c.id}>{c.name}</option>
+                                            ))
+                                        ) : (
+                                            <>
+                                                <option value="cat-chiffon">Chiffon Luxury</option>
+                                                <option value="cat-festive">Festive Formal</option>
+                                                <option value="cat-velvet">Velvet Edition</option>
+                                                <option value="cat-ready">Ready-to-Wear</option>
+                                                <option value="cat-luxury">Luxury Dresses</option>
+                                            </>
+                                        )}
                                     </select>
                                 </div>
 

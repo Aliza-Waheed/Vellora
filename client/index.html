@@ -1,18 +1,33 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VELLORA — Luxury Pakistani Boutique | Dresses, Skincare, Cosmetics & Jewelry</title>
-    <meta name="description" content="Vellora is your premier online Pakistani luxury boutique featuring designer unstitched & stitched dresses, organic skincare, luxury cosmetics, and handcrafted fine jewelry." />
-    <!-- Google Fonts: Playfair Display & Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-[#FDFBF7] text-[#2C1810] font-sans antialiased selection:bg-[#D4AF37]/20 selection:text-[#2C1810]">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VELLORA — Luxury Pakistani Boutique | Designer & Festive Dresses</title>
+  <meta name="description"
+    content="Vellora is your premier online Pakistani luxury boutique featuring designer unstitched & stitched dresses, pure chiffon luxury, royal velvet, and festive formals." />
+  <!-- Google Fonts: Playfair Display & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap"
+    rel="stylesheet">
+  <script>
+    // Fallback for static servers (e.g. VS Code Live Server on port 5500) where Vite dev server is not active
+    (function () {
+      var isViteDev = window.location.port === '3000' || window.location.port === '5173';
+      if (!isViteDev && !window.location.pathname.includes('/dist/')) {
+        window.location.replace('./dist/index.html');
+      }
+    })();
+  </script>
+</head>
+
+<body class="bg-[#FDFBF7] text-[#2C1810] font-sans antialiased selection:bg-[#D4AF37]/20 selection:text-[#2C1810]">
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

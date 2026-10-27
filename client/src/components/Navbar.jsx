@@ -75,17 +75,20 @@ export const Navbar = () => {
                         <Link to="/" className="text-[#2C1810] hover:text-[#D4AF37] transition duration-200 py-1 border-b-2 border-transparent hover:border-[#D4AF37]">
                             Home
                         </Link>
-                        <Link to="/shop?category=dresses" className="text-[#2C1810] hover:text-[#D4AF37] transition duration-200 py-1 border-b-2 border-transparent hover:border-[#D4AF37]">
-                            Pakistani Dresses
+                        <Link to="/shop" className="text-[#2C1810] hover:text-[#D4AF37] transition duration-200 py-1 border-b-2 border-transparent hover:border-[#D4AF37]">
+                            All Dresses
                         </Link>
-                        <Link to="/shop?category=skincare" className="text-[#2C1810] hover:text-[#D4AF37] transition duration-200 py-1 border-b-2 border-transparent hover:border-[#D4AF37]">
-                            Skincare
+                        <Link to="/shop?category=chiffon-luxury" className="text-[#2C1810] hover:text-[#D4AF37] transition duration-200 py-1 border-b-2 border-transparent hover:border-[#D4AF37]">
+                            Chiffon Luxury
                         </Link>
-                        <Link to="/shop?category=cosmetics" className="text-[#2C1810] hover:text-[#D4AF37] transition duration-200 py-1 border-b-2 border-transparent hover:border-[#D4AF37]">
-                            Cosmetics
+                        <Link to="/shop?category=festive-formal" className="text-[#2C1810] hover:text-[#D4AF37] transition duration-200 py-1 border-b-2 border-transparent hover:border-[#D4AF37]">
+                            Festive Formal
                         </Link>
-                        <Link to="/shop?category=jewelry" className="text-[#2C1810] hover:text-[#D4AF37] transition duration-200 py-1 border-b-2 border-transparent hover:border-[#D4AF37]">
-                            Jewelry
+                        <Link to="/shop?category=velvet-edition" className="text-[#2C1810] hover:text-[#D4AF37] transition duration-200 py-1 border-b-2 border-transparent hover:border-[#D4AF37]">
+                            Velvet Edition
+                        </Link>
+                        <Link to="/shop?category=ready-to-wear" className="text-[#2C1810] hover:text-[#D4AF37] transition duration-200 py-1 border-b-2 border-transparent hover:border-[#D4AF37]">
+                            Ready-to-Wear
                         </Link>
                         <Link to="/track-order" className="text-[#9E7B82] font-semibold hover:text-[#2C1810] transition duration-200 py-1 flex items-center gap-1">
                             <PackageCheck className="w-4 h-4 text-[#D4AF37]" /> Track Order
@@ -240,7 +243,7 @@ export const Navbar = () => {
                                 <Search className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                                 <input
                                     type="text"
-                                    placeholder="Search Pakistani dresses, saffron serums, matte lipsticks, Kundan jewelry..."
+                                    placeholder="Search chiffon luxury dresses, velvet suits, festive formals, unstitched lawn..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                     autoFocus
@@ -281,17 +284,20 @@ export const Navbar = () => {
                                 <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="py-2 border-b border-[#F4EBE1]">
                                     Home
                                 </Link>
-                                <Link to="/shop?category=dresses" onClick={() => setIsMobileMenuOpen(false)} className="py-2 border-b border-[#F4EBE1]">
-                                    Pakistani Dresses
+                                <Link to="/shop" onClick={() => setIsMobileMenuOpen(false)} className="py-2 border-b border-[#F4EBE1]">
+                                    All Dresses
                                 </Link>
-                                <Link to="/shop?category=skincare" onClick={() => setIsMobileMenuOpen(false)} className="py-2 border-b border-[#F4EBE1]">
-                                    Skincare
+                                <Link to="/shop?category=chiffon-luxury" onClick={() => setIsMobileMenuOpen(false)} className="py-2 border-b border-[#F4EBE1]">
+                                    Chiffon Luxury
                                 </Link>
-                                <Link to="/shop?category=cosmetics" onClick={() => setIsMobileMenuOpen(false)} className="py-2 border-b border-[#F4EBE1]">
-                                    Cosmetics
+                                <Link to="/shop?category=festive-formal" onClick={() => setIsMobileMenuOpen(false)} className="py-2 border-b border-[#F4EBE1]">
+                                    Festive Formal
                                 </Link>
-                                <Link to="/shop?category=jewelry" onClick={() => setIsMobileMenuOpen(false)} className="py-2 border-b border-[#F4EBE1]">
-                                    Jewelry
+                                <Link to="/shop?category=velvet-edition" onClick={() => setIsMobileMenuOpen(false)} className="py-2 border-b border-[#F4EBE1]">
+                                    Velvet Edition
+                                </Link>
+                                <Link to="/shop?category=ready-to-wear" onClick={() => setIsMobileMenuOpen(false)} className="py-2 border-b border-[#F4EBE1]">
+                                    Ready-to-Wear
                                 </Link>
                                 <Link to="/track-order" onClick={() => setIsMobileMenuOpen(false)} className="py-2 border-b border-[#F4EBE1] text-[#9E7B82] font-semibold">
                                     Track Order

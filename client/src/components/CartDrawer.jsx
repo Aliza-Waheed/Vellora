@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, Tag, Sparkles, CheckCircle2 } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
+import { handleImageError } from '../utils/imageHelper';
 
 export const CartDrawer = () => {
     const navigate = useNavigate();
@@ -97,7 +98,7 @@ export const CartDrawer = () => {
                                 </div>
                                 <h3 className="font-serif text-lg font-bold text-[#2C1810]">Your bag is empty</h3>
                                 <p className="text-xs text-gray-500 mt-1 max-w-xs">
-                                    Discover our festive Pakistani dresses, glowing skincare, couture cosmetics & handcrafted jewelry.
+                                    Discover our festive Pakistani dresses, pure chiffon ensembles & royal velvet collections.
                                 </p>
                                 <button
                                     onClick={() => {
@@ -115,6 +116,7 @@ export const CartDrawer = () => {
                                     <img
                                         src={item.image}
                                         alt={item.name}
+                                        onError={handleImageError}
                                         className="w-20 h-24 object-cover rounded-lg border border-[#E8DFD8]"
                                     />
                                     <div className="flex-1 flex flex-col justify-between">

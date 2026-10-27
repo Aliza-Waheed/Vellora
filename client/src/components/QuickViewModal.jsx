@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Star, Heart, ShoppingBag, CheckCircle, ShieldCheck } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
+import { handleImageError } from '../utils/imageHelper';
 
 export const QuickViewModal = () => {
     const { quickViewProduct, setQuickViewProduct, addToCart, toggleWishlist, isInWishlist } = useShop();
@@ -37,6 +38,7 @@ export const QuickViewModal = () => {
                         <img
                             src={product.images?.[selectedImageIndex] || product.images?.[0]}
                             alt={product.name}
+                            onError={handleImageError}
                             className="w-full h-full object-cover"
                         />
                     </div>
@@ -51,7 +53,7 @@ export const QuickViewModal = () => {
                                     className={`w-14 h-14 rounded-lg overflow-hidden border-2 transition ${selectedImageIndex === idx ? 'border-[#D4AF37]' : 'border-transparent opacity-70'
                                         }`}
                                 >
-                                    <img src={img} alt="" className="w-full h-full object-cover" />
+                                    <img src={img} alt="" onError={handleImageError} className="w-full h-full object-cover" />
                                 </button>
                             ))}
                         </div>

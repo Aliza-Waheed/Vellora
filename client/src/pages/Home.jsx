@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Sparkles, ArrowRight, Star, Heart, ShoppingBag, Eye, Plus, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 import { api } from '../services/api';
+import { handleImageError } from '../utils/imageHelper';
 
 export const Home = () => {
     const navigate = useNavigate();
@@ -37,7 +38,7 @@ export const Home = () => {
         {
             id: 'default-ban',
             title: 'Welcome to Vellora Boutique',
-            subtitle: 'Pakistan’s premier destination for handcrafted luxury unstitched lawn, botanical skincare, and royal Kundan jewelry.',
+            subtitle: 'Pakistan’s premier destination for handcrafted luxury unstitched lawn, festive chiffon ensembles, and royal velvet wear.',
             buttonText: 'Explore Boutique Catalogue',
             link: '/shop',
             imageUrl: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1600&q=80'
@@ -140,6 +141,7 @@ export const Home = () => {
                             <img
                                 src={cat.image}
                                 alt={cat.name}
+                                onError={handleImageError}
                                 className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 flex flex-col justify-end text-white">
@@ -182,7 +184,7 @@ export const Home = () => {
                     <div className="bg-white p-12 rounded-2xl border border-[#E8DFD8] text-center space-y-4">
                         <h3 className="font-serif text-xl font-bold text-[#2C1810]">Catalog is Ready for Your Products</h3>
                         <p className="text-xs text-gray-500 max-w-md mx-auto">
-                            All dummy data has been removed. You can now use the Admin Dashboard to upload real boutique dresses, skincare, cosmetics, and jewelry!
+                            All dummy data has been removed. You can now use the Admin Dashboard to upload real boutique Pakistani dresses!
                         </p>
                         <Link
                             to="/admin"
@@ -204,6 +206,7 @@ export const Home = () => {
                                         <img
                                             src={prod.images?.[0]}
                                             alt={prod.name}
+                                            onError={handleImageError}
                                             className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                                         />
                                     </div>

@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { Filter, SlidersHorizontal, Search, Star, Heart, ShoppingBag, Eye, X, Sparkles } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
+import { handleImageError } from '../utils/imageHelper';
 
 export const Shop = () => {
     const navigate = useNavigate();
@@ -46,10 +47,14 @@ export const Shop = () => {
     const filteredProducts = useMemo(() => {
         return products.filter((prod) => {
             // Category Filter
-            if (selectedCategory && selectedCategory !== 'all') {
+            if (selectedCategory && selectedCategory !== 'all' && selectedCategory !== 'dresses') {
                 const catObj = categories.find(c => c.slug === selectedCategory || c.id === selectedCategory);
-                if (catObj && prod.categoryId !== catObj.id && prod.categoryId !== selectedCategory) {
-                    return false;
+                if (catObj) {
+                    const matchesCat = prod.categoryId === catObj.id ||
+                        prod.categoryId === selectedCategory ||
+                        (catObj.subcategories && catObj.subcategories.some(sub => sub.toLowerCase() === (prod.subcategory || '').toLowerCase())) ||
+                        (prod.subcategory && prod.subcategory.toLowerCase().includes(catObj.name.toLowerCase()));
+                    if (!matchesCat) return false;
                 }
             }
 
@@ -112,11 +117,11 @@ export const Shop = () => {
                     <h1 className="font-serif text-3xl sm:text-4xl font-bold text-[#2C1810] mt-0.5">
                         {selectedSubcategory
                             ? selectedSubcategory
-                            : selectedCategory
-                                ? (categories.find(c => c.slug === selectedCategory)?.name || 'Collection')
+                            : selectedCategory && selectedCategory !== 'dresses'
+                                ? (categories.find(c => c.slug === selectedCategory)?.name || 'Pakistani Dresses')
                                 : searchKeyword
                                     ? `Search Results for "${searchKeyword}"`
-                                    : 'All Luxury Products'}
+                                    : 'Pakistani Luxury Dresses'}
                     </h1>
                     <p className="text-xs text-gray-500 mt-1">
                         Showing {filteredProducts.length} of {products.length} handcrafted items
@@ -158,12 +163,12 @@ export const Shop = () => {
                             setSelectedSubcategory('');
                             setSearchParams({});
                         }}
-                        className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition whitespace-nowrap ${!selectedCategory
+                        className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition whitespace-nowrap ${(!selectedCategory || selectedCategory === 'dresses') && !selectedSubcategory
                                 ? 'bg-[#2C1810] text-[#D4AF37]'
                                 : 'bg-white text-gray-700 border border-[#E8DFD8] hover:border-[#D4AF37]'
                             }`}
                     >
-                        All Items
+                        All Dresses
                     </button>
                     {categories.map((cat) => (
                         <button
@@ -183,8 +188,8 @@ export const Shop = () => {
                     ))}
                 </div>
 
-                {/* Subcategories Filter Pills Bar */}
-                {availableSubcategories.length > 0 && (
+                {/* Subcategories Filter Pills Bar (if category has multiple sub-collections) */}
+                {availableSubcategories.length > 1 && (
                     <div className="bg-[#FAF6F0] p-3 rounded-2xl border border-[#E8DFD8] flex items-center gap-2 overflow-x-auto">
                         <span className="text-[11px] font-bold text-[#9E7B82] uppercase tracking-wider flex items-center gap-1 shrink-0 px-2">
                             <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" /> Sub-sections:
@@ -321,6 +326,7 @@ export const Shop = () => {
                                             <img
                                                 src={prod.images?.[0]}
                                                 alt={prod.name}
+                                                onError={handleImageError}
                                                 className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                                             />
                                             <div className="absolute top-3 left-3 flex flex-col gap-1">

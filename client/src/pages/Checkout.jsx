@@ -4,6 +4,7 @@ import { CheckCircle2, ShieldCheck, Truck, CreditCard, ArrowRight, ShoppingBag, 
 import { useShop } from '../context/ShopContext';
 import { useAuth } from '../context/AuthContext';
 import { api } from '../services/api';
+import { handleImageError } from '../utils/imageHelper';
 
 export const Checkout = () => {
     const navigate = useNavigate();
@@ -394,7 +395,7 @@ export const Checkout = () => {
                         <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
                             {cart.map((item) => (
                                 <div key={item.key} className="flex items-center gap-3 text-xs border-b border-[#F4EBE1] pb-2">
-                                    <img src={item.image} alt="" className="w-12 h-14 object-cover rounded border border-[#E8DFD8]" />
+                                    <img src={item.image} alt="" onError={handleImageError} className="w-12 h-14 object-cover rounded border border-[#E8DFD8]" />
                                     <div className="flex-1">
                                         <h4 className="font-serif font-bold text-[#2C1810] line-clamp-1">{item.name}</h4>
                                         <p className="text-[11px] text-gray-500">{item.variant} x {item.quantity}</p>

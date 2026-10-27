@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Heart, ShoppingBag, Trash2, ArrowRight } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
+import { handleImageError } from '../utils/imageHelper';
 
 export const Wishlist = () => {
     const navigate = useNavigate();
@@ -26,7 +27,7 @@ export const Wishlist = () => {
                     </div>
                     <h3 className="font-serif text-xl font-bold text-[#2C1810]">Your wishlist is currently empty</h3>
                     <p className="text-xs text-gray-500">
-                        Explore our luxury unstitched lawn, organic skincare serums, and fine Kundan jewelry to save your favourites!
+                        Explore our luxury unstitched lawn, festive chiffon ensembles, and royal velvet dresses to save your favourites!
                     </p>
                     <Link
                         to="/shop"
@@ -46,6 +47,7 @@ export const Wishlist = () => {
                                 <img
                                     src={prod.images?.[0]}
                                     alt={prod.name}
+                                    onError={handleImageError}
                                     className="w-full h-full object-cover"
                                 />
                                 <button

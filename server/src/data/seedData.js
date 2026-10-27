@@ -2,36 +2,44 @@
 
 export const initialCategories = [
     {
-        id: "cat-dresses",
-        name: "Pakistani Dresses",
-        slug: "dresses",
-        description: "Exquisite Pakistani designer unstitched lawn, luxury chiffon, velvet ensembles & formal bridal wear.",
+        id: "cat-chiffon",
+        name: "Chiffon Luxury",
+        slug: "chiffon-luxury",
+        description: "Exquisite pure georgette & chiffon dresses featuring intricate scalloped lace, tilla, and floral embroidery.",
+        image: "/images/chiffon-luxury-dresses/chiffon-01.jpg",
+        subcategories: ["Chiffon Luxury Dress"]
+    },
+    {
+        id: "cat-festive",
+        name: "Festive Formal",
+        slug: "festive-formal",
+        description: "Opulent wedding & celebration ensembles adorned with hand-placed pearls, tilla, and sequins.",
+        image: "/images/festive-formal/festive-01.jpg",
+        subcategories: ["Festive Formal"]
+    },
+    {
+        id: "cat-velvet",
+        name: "Velvet Edition",
+        slug: "velvet-edition",
+        description: "Regal micro-velvet kurtas, angrakhas, and heavily embroidered dupattas in rich royal jewel tones.",
+        image: "/images/velvet-edition/velvet-01.jpg",
+        subcategories: ["Velvet Edition"]
+    },
+    {
+        id: "cat-ready",
+        name: "Ready-to-Wear",
+        slug: "ready-to-wear",
+        description: "Designer pret-a-porter stitched 3-piece and 2-piece ensembles tailored to perfection.",
+        image: "/images/ready-to-wear/ready-to-wear-01.jpg",
+        subcategories: ["Ready-to-Wear Stitched"]
+    },
+    {
+        id: "cat-luxury",
+        name: "Luxury Dresses",
+        slug: "luxury-dresses",
+        description: "Signature raw silk, metallic tissue, and pastel embroidered luxury master pieces.",
         image: "/images/luxury-dresses/dress-01.jpg",
-        subcategories: ["Chiffon Luxury Dress", "Luxury Dresses", "Velvet Edition", "Festive Formal", "Ready-to-Wear Stitched"]
-    },
-    {
-        id: "cat-skincare",
-        name: "Skincare",
-        slug: "skincare",
-        description: "Nourishing botanical serums, organic glowing elixirs, sunscreens and restorative creams for glowing skin.",
-        image: "https://images.unsplash.com/photo-1608248597263-00079e995e8a?auto=format&fit=crop&w=800&q=80",
-        subcategories: ["Serums & Oils", "Sunscreens & SPF", "Moisturizers", "Cleansers & Toners", "Face Masks"]
-    },
-    {
-        id: "cat-cosmetics",
-        name: "Cosmetics",
-        slug: "cosmetics",
-        description: "Premium velvet lipsticks, weightless foundations, blushes, highlighters and eye palettes.",
-        image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80",
-        subcategories: ["Lipsticks & Gloss", "Foundations & Concealers", "Blushes & Highlighters", "Eyeshadows & Mascara", "Setting Sprays"]
-    },
-    {
-        id: "cat-jewelry",
-        name: "Jewelry",
-        slug: "jewelry",
-        description: "Handcrafted Kundan, Polki, Zircon, royal bridal sets, gold-plated chokers and statement earrings.",
-        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80",
-        subcategories: []
+        subcategories: ["Luxury Dresses"]
     }
 ];
 
@@ -1512,118 +1520,6 @@ export const initialProducts = [
         ],
         colors: ["Rich Cocoa Brown"],
         sizes: ["Small", "Medium", "Large"]
-    },
-    {
-        id: "prod-skincare-01",
-        name: "Minimalist Vitamin C 10% Face Serum with Acetyl Glucosamine & Centella",
-        slug: "minimalist-vitamin-c-10-percent-face-serum",
-        categoryId: "cat-skincare",
-        subcategory: "Serums & Oils",
-        brand: "Minimalist",
-        price: 3450,
-        originalPrice: 4200,
-        discountPercent: 18,
-        stock: 30,
-        rating: 4.9,
-        reviewCount: 88,
-        isNewArrival: true,
-        isBestSeller: true,
-        isFeatured: true,
-        description: "Advanced 10% Vitamin C face serum enriched with Acetyl Glucosamine, Polyhydroxy Acid (PHA), and soothing Centella Asiatica. Brightens dark spots, illuminates skin tone, and reduces hyperpigmentation for all skin types.",
-        fabric: "Vitamin C 10% + Acetyl Glucosamine + Polyhydroxy Acid + Centella",
-        stitchedType: "Dermatologically Tested Glow Serum",
-        images: [
-            "/images/skincare/skincare-serum-01.jpg"
-        ],
-        variants: [
-            { id: "v476", type: "Size", value: "30ml Bottle", priceExtra: 0, stock: 30 }
-        ],
-        colors: ["30ml / 1 fl. oz"],
-        sizes: ["Standard 30ml Bottle"]
-    },
-    {
-        id: "prod-skincare-02",
-        name: "SCS Salicylic Anti Acne Serum with Neem, Tea Tree & Witch Hazel",
-        slug: "scs-salicylic-anti-acne-serum",
-        categoryId: "cat-skincare",
-        subcategory: "Serums & Oils",
-        brand: "Success Chaser Store",
-        price: 1850,
-        originalPrice: 2400,
-        discountPercent: 23,
-        stock: 25,
-        rating: 4.8,
-        reviewCount: 62,
-        isNewArrival: true,
-        isBestSeller: true,
-        isFeatured: true,
-        description: "Targeted Salicylic Acid anti-acne clarify serum formulated with natural Neem, Tea Tree oil, Lavender, and Witch Hazel botanical extracts to unclog pores, soothe inflammation, and clear active breakouts.",
-        fabric: "Salicylic Acid + Neem Extract + Tea Tree Oil + Witch Hazel + Lavender",
-        stitchedType: "Anti-Acne & Blemish Control Serum",
-        images: [
-            "/images/skincare/skincare-serum-02.jpg"
-        ],
-        variants: [
-            { id: "v477", type: "Size", value: "15ml Bottle", priceExtra: 0, stock: 25 }
-        ],
-        colors: ["15ml / 0.50 fl. oz"],
-        sizes: ["Standard 15ml Bottle"]
-    },
-    {
-        id: "prod-skincare-03",
-        name: "Dr. Rashel Vitamin C Brightening & Anti-Aging Face Serum with Hyaluronic Acid",
-        slug: "dr-rashel-vitamin-c-brightening-anti-aging-face-serum",
-        categoryId: "cat-skincare",
-        subcategory: "Serums & Oils",
-        brand: "Dr. Rashel",
-        price: 2250,
-        originalPrice: 2900,
-        discountPercent: 22,
-        stock: 35,
-        rating: 4.9,
-        reviewCount: 110,
-        isNewArrival: true,
-        isBestSeller: true,
-        isFeatured: true,
-        description: "Potent anti-aging and brightening facial serum packed with pure Vitamin C and moisture-locking Hyaluronic Acid. Protects against environmental damage, boosts elasticity, firms fine lines, and restores radiant youthful glow.",
-        fabric: "Vitamin C + Hyaluronic Acid Antioxidant Complex",
-        stitchedType: "Anti-Aging & Firming Facial Serum",
-        images: [
-            "/images/skincare/skincare-serum-03.jpg"
-        ],
-        variants: [
-            { id: "v478", type: "Size", value: "50ml Bottle", priceExtra: 0, stock: 35 }
-        ],
-        colors: ["50ml / 1.69 fl. oz"],
-        sizes: ["Standard 50ml Dropper Bottle"]
-    },
-    {
-        id: "prod-skincare-04",
-        name: "The Ordinary Caffeine Solution 5% + EGCG Eye Contour Serum",
-        slug: "the-ordinary-caffeine-solution-5-percent-egcg",
-        categoryId: "cat-skincare",
-        subcategory: "Serums & Oils",
-        brand: "The Ordinary",
-        price: 4800,
-        originalPrice: 5600,
-        discountPercent: 14,
-        stock: 20,
-        rating: 5.0,
-        reviewCount: 145,
-        isNewArrival: true,
-        isBestSeller: true,
-        isFeatured: true,
-        description: "Light-textured clinical formulation containing 5% concentrated caffeine combined with highly-purified EGCG from green tea leaves. Dramatically reduces dark eye circles, under-eye puffiness, and tiredness around the delicate eye contour.",
-        fabric: "High-Solubility Caffeine 5% + Purified Green Tea EGCG Glucoside",
-        stitchedType: "Clinical Eye Contour Pigmentation & Puffiness Solution",
-        images: [
-            "/images/skincare/skincare-serum-04.jpg"
-        ],
-        variants: [
-            { id: "v479", type: "Size", value: "30ml Bottle", priceExtra: 0, stock: 20 }
-        ],
-        colors: ["30ml / 1 fl. oz"],
-        sizes: ["Standard 30ml Amber Bottle"]
     }
 ];
 

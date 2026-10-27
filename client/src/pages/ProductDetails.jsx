@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Star, Heart, ShoppingBag, Truck, ShieldCheck, RefreshCw, CheckCircle, ArrowRight, Share2, Send } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 import { api } from '../services/api';
+import { handleImageError } from '../utils/imageHelper';
 
 export const ProductDetails = () => {
     const { id } = useParams();
@@ -101,6 +102,7 @@ export const ProductDetails = () => {
                         <img
                             src={product.images?.[selectedImageIndex] || product.images?.[0]}
                             alt={product.name}
+                            onError={handleImageError}
                             className="w-full h-full object-cover"
                         />
                         {product.discountPercent > 0 && (
@@ -120,7 +122,7 @@ export const ProductDetails = () => {
                                     className={`w-20 h-20 rounded-xl overflow-hidden border-2 transition flex-shrink-0 ${selectedImageIndex === idx ? 'border-[#D4AF37] shadow-md' : 'border-[#E8DFD8] opacity-70 hover:opacity-100'
                                         }`}
                                 >
-                                    <img src={img} alt="" className="w-full h-full object-cover" />
+                                    <img src={img} alt="" onError={handleImageError} className="w-full h-full object-cover" />
                                 </button>
                             ))}
                         </div>
@@ -284,7 +286,7 @@ export const ProductDetails = () => {
                     <div className="space-y-2 text-xs text-gray-700 max-w-md">
                         <p><strong>Fabric / Material:</strong> {product.fabric || 'Pure Luxury Blend'}</p>
                         <p><strong>Stitching:</strong> {product.stitchedType || 'Unstitched / Stitched Custom'}</p>
-                        <p><strong>Care Instructions:</strong> Dry clean recommended for heavy embroidered chiffon &amp; Kundan jewelry. Wash skin products in cool room temperature.</p>
+                        <p><strong>Care Instructions:</strong> Dry clean recommended for heavy embroidered chiffon, festive organza &amp; royal velvet ensembles.</p>
                     </div>
                 )}
 

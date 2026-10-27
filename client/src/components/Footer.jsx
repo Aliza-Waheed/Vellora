@@ -74,7 +74,7 @@ export const Footer = () => {
                             <span className="block text-[9px] uppercase tracking-[0.4em] text-[#D4AF37]">Luxury Pakistani Boutique</span>
                         </Link>
                         <p className="text-xs text-gray-300 leading-relaxed max-w-sm">
-                            Vellora is Pakistan’s premier destination for handcrafted luxury unstitched lawn, festive chiffon, botanical skincare, couture lipsticks, and heritage Kundan jewelry.
+                            Vellora is Pakistan’s premier destination for handcrafted luxury unstitched lawn, festive chiffon ensembles, regal velvet suits, and designer stitched pret.
                         </p>
 
                         <div className="space-y-2 pt-2 text-xs text-gray-300">
@@ -97,11 +97,11 @@ export const Footer = () => {
                     <div>
                         <h4 className="font-serif font-bold text-sm tracking-widest uppercase text-[#D4AF37] mb-4">Shop Collections</h4>
                         <ul className="space-y-2.5 text-xs text-gray-300">
-                            <li><Link to="/shop?category=dresses" className="hover:text-[#D4AF37] transition">Ready-to-Wear Stitched 2026</Link></li>
-                            <li><Link to="/shop?category=dresses" className="hover:text-[#D4AF37] transition">Chiffon & Velvet Edition</Link></li>
-                            <li><Link to="/shop?category=skincare" className="hover:text-[#D4AF37] transition">Saffron & Rose Glow Serums</Link></li>
-                            <li><Link to="/shop?category=cosmetics" className="hover:text-[#D4AF37] transition">Velvet Liquid Lipsticks</Link></li>
-                            <li><Link to="/shop?category=jewelry" className="hover:text-[#D4AF37] transition">Royal Kundan & Polki Sets</Link></li>
+                            <li><Link to="/shop?category=chiffon-luxury" className="hover:text-[#D4AF37] transition">Chiffon Luxury Dress</Link></li>
+                            <li><Link to="/shop?category=festive-formal" className="hover:text-[#D4AF37] transition">Festive & Formal Wear</Link></li>
+                            <li><Link to="/shop?category=velvet-edition" className="hover:text-[#D4AF37] transition">Royal Velvet Edition</Link></li>
+                            <li><Link to="/shop?category=ready-to-wear" className="hover:text-[#D4AF37] transition">Ready-to-Wear Stitched</Link></li>
+                            <li><Link to="/shop?category=luxury-dresses" className="hover:text-[#D4AF37] transition">Designer Luxury Suits</Link></li>
                         </ul>
                     </div>
 
