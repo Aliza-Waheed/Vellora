@@ -7,12 +7,26 @@
     "server"
   ],
   "scripts": {
-    "dev": "cd client && npm run dev",
-    "start": "cd server && node src/server.js",
-    "install:all": "cd client && npm install && cd ../server && npm install",
-    "dev:client": "cd client && npm run dev",
-    "dev:server": "cd server && npm run dev",
-    "build": "cd client && npm install && npm run build && cd .. && node -e \"const fs=require('fs'); try { fs.cpSync('client/dist', 'dist', {recursive:true}); } catch(e){}\"",
-    "vercel-build": "cd client && npm install && npm run build && cd .. && node -e \"const fs=require('fs'); try { fs.cpSync('client/dist', 'dist', {recursive:true}); } catch(e){}\""
+    "dev": "npm --prefix client run dev",
+    "start": "npm --prefix server run start",
+    "install:all": "npm install && npm --prefix client install && npm --prefix server install",
+    "dev:client": "npm --prefix client run dev",
+    "dev:server": "npm --prefix server run dev",
+    "build": "npm --prefix client install && npm --prefix client run build",
+    "vercel-build": "npm --prefix client install && npm --prefix client run build"
+  },
+  "dependencies": {
+    "lucide-react": "^1.48.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.0"
   }
 }

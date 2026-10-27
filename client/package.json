@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node -e \"const fs=require('fs'); try { fs.cpSync('public/images', '../images', {recursive:true}); fs.cpSync('public/images', 'images', {recursive:true}); } catch(e){}\"",
+    "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview"
   },
