@@ -37,13 +37,13 @@ export const Wishlist = () => {
                     </Link>
                 </div>
             ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
                     {wishlist.map((prod) => (
                         <div
                             key={prod.id}
                             className="bg-white rounded-2xl border border-[#E8DFD8] overflow-hidden shadow-xs hover:shadow-lg transition duration-300 flex flex-col justify-between"
                         >
-                            <div className="relative h-72 overflow-hidden bg-[#FAF6F0]">
+                            <div className="relative h-48 sm:h-64 md:h-72 overflow-hidden bg-[#FAF6F0]">
                                 <img
                                     src={prod.images?.[0]}
                                     alt={prod.name}
@@ -59,26 +59,26 @@ export const Wishlist = () => {
                                 </button>
                             </div>
 
-                            <div className="p-4 flex-1 flex flex-col justify-between">
+                            <div className="p-3 sm:p-4 flex-1 flex flex-col justify-between">
                                 <div>
-                                    <span className="text-[10px] font-semibold text-[#9E7B82] uppercase tracking-wider">{prod.brand}</span>
+                                    <span className="text-[9px] sm:text-[10px] font-semibold text-[#9E7B82] uppercase tracking-wider">{prod.brand}</span>
                                     <h3
                                         onClick={() => navigate(`/product/${prod.id}`)}
-                                        className="font-serif font-bold text-sm text-[#2C1810] mt-0.5 hover:text-[#D4AF37] cursor-pointer line-clamp-1"
+                                        className="font-serif font-bold text-xs sm:text-sm text-[#2C1810] mt-0.5 hover:text-[#D4AF37] cursor-pointer line-clamp-1"
                                     >
                                         {prod.name}
                                     </h3>
-                                    <span className="text-sm font-bold text-[#2C1810] block mt-2">
+                                    <span className="text-xs sm:text-sm font-bold text-[#2C1810] block mt-1 sm:mt-2">
                                         Rs. {prod.price.toLocaleString()}
                                     </span>
                                 </div>
 
-                                <div className="mt-4 pt-3 border-t border-[#F4EBE1]">
+                                <div className="mt-3 sm:mt-4 pt-2 sm:pt-3 border-t border-[#F4EBE1]">
                                     <button
                                         onClick={() => moveToCart(prod)}
-                                        className="w-full bg-[#2C1810] text-[#FAF6F0] py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-[#362219] transition flex items-center justify-center gap-2"
+                                        className="w-full bg-[#2C1810] text-[#FAF6F0] py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider hover:bg-[#362219] transition flex items-center justify-center gap-1.5"
                                     >
-                                        <ShoppingBag className="w-4 h-4 text-[#D4AF37]" /> Move to Bag
+                                        <ShoppingBag className="w-3.5 h-3.5 text-[#D4AF37]" /> <span className="hidden xs:inline">Move to</span> Bag
                                     </button>
                                 </div>
                             </div>

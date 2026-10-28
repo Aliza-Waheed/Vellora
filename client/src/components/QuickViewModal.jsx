@@ -21,20 +21,21 @@ export const QuickViewModal = () => {
     };
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fade-in">
-            <div className="relative w-full max-w-3xl bg-[#FDFBF7] rounded-2xl shadow-2xl overflow-hidden border border-[#E8DFD8] flex flex-col md:flex-row max-h-[90vh]">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs animate-fade-in">
+            <div className="relative w-full max-w-3xl bg-[#FDFBF7] rounded-2xl shadow-2xl overflow-hidden border border-[#E8DFD8] flex flex-col md:flex-row max-h-[92vh] overflow-y-auto">
 
                 {/* Close Button */}
                 <button
                     onClick={() => setQuickViewProduct(null)}
-                    className="absolute top-3 right-3 z-10 p-2 bg-white/80 backdrop-blur-xs text-gray-500 hover:text-black rounded-full shadow-sm transition"
+                    className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10 p-1.5 sm:p-2 bg-white/90 backdrop-blur-xs text-gray-500 hover:text-black rounded-full shadow-sm transition"
+                    aria-label="Close"
                 >
-                    <X className="w-5 h-5" />
+                    <X className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
 
                 {/* Gallery */}
-                <div className="md:w-1/2 bg-white p-4 flex flex-col items-center justify-between">
-                    <div className="w-full h-72 md:h-80 overflow-hidden rounded-xl bg-[#FAF6F0] border border-[#E8DFD8]">
+                <div className="md:w-1/2 bg-white p-3 sm:p-4 flex flex-col items-center justify-between">
+                    <div className="w-full h-52 sm:h-72 md:h-80 overflow-hidden rounded-xl bg-[#FAF6F0] border border-[#E8DFD8]">
                         <img
                             src={product.images?.[selectedImageIndex] || product.images?.[0]}
                             alt={product.name}
@@ -45,12 +46,12 @@ export const QuickViewModal = () => {
 
                     {/* Thumbnails */}
                     {product.images && product.images.length > 1 && (
-                        <div className="flex gap-2 mt-3 overflow-x-auto w-full justify-center">
+                        <div className="flex gap-2 mt-2 sm:mt-3 overflow-x-auto w-full justify-center">
                             {product.images.map((img, idx) => (
                                 <button
                                     key={idx}
                                     onClick={() => setSelectedImageIndex(idx)}
-                                    className={`w-14 h-14 rounded-lg overflow-hidden border-2 transition ${selectedImageIndex === idx ? 'border-[#D4AF37]' : 'border-transparent opacity-70'
+                                    className={`w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border-2 transition shrink-0 ${selectedImageIndex === idx ? 'border-[#D4AF37]' : 'border-transparent opacity-70'
                                         }`}
                                 >
                                     <img src={img} alt="" onError={handleImageError} className="w-full h-full object-cover" />
@@ -61,7 +62,7 @@ export const QuickViewModal = () => {
                 </div>
 
                 {/* Details & Selectors */}
-                <div className="md:w-1/2 p-6 flex flex-col justify-between overflow-y-auto bg-[#FDFBF7]">
+                <div className="md:w-1/2 p-4 sm:p-6 flex flex-col justify-between overflow-y-auto bg-[#FDFBF7]">
                     <div>
                         <div className="flex items-center gap-2 text-xs text-[#9E7B82] font-semibold uppercase tracking-wider">
                             <span>{product.brand}</span>

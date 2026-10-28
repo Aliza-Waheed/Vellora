@@ -108,13 +108,13 @@ export const Shop = () => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-6 sm:space-y-8">
 
             {/* Page Title & Breadcrumb */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#E8DFD8] pb-6">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#E8DFD8] pb-5 sm:pb-6">
                 <div>
-                    <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#9E7B82]">Vellora Boutique</span>
-                    <h1 className="font-serif text-3xl sm:text-4xl font-bold text-[#2C1810] mt-0.5">
+                    <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#9E7B82]">Vellora Boutique</span>
+                    <h1 className="font-serif text-2xl sm:text-4xl font-bold text-[#2C1810] mt-0.5">
                         {selectedSubcategory
                             ? selectedSubcategory
                             : selectedCategory && selectedCategory !== 'dresses'
@@ -129,20 +129,20 @@ export const Shop = () => {
                 </div>
 
                 {/* Mobile Filter Trigger & Sort Selector */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
                     <button
                         onClick={() => setIsFilterDrawerOpen(true)}
-                        className="lg:hidden flex items-center gap-2 bg-white border border-[#E8DFD8] px-4 py-2.5 rounded-full text-xs font-semibold text-[#2C1810]"
+                        className="lg:hidden flex-1 sm:flex-none flex items-center justify-center gap-1.5 sm:gap-2 bg-white border border-[#E8DFD8] px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-xs font-semibold text-[#2C1810] hover:border-[#D4AF37] transition shadow-xs"
                     >
-                        <Filter className="w-4 h-4 text-[#D4AF37]" /> Filter & Refine
+                        <Filter className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D4AF37]" /> Filter &amp; Refine
                     </button>
 
-                    <div className="flex items-center gap-2 bg-white border border-[#E8DFD8] px-4 py-2 rounded-full text-xs font-medium">
-                        <span className="text-gray-400 font-normal">Sort:</span>
+                    <div className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 sm:gap-2 bg-white border border-[#E8DFD8] px-3 sm:px-4 py-2 sm:py-2 rounded-full text-xs font-medium shadow-xs">
+                        <span className="text-gray-400 font-normal hidden sm:inline">Sort:</span>
                         <select
                             value={sortBy}
                             onChange={(e) => setSortBy(e.target.value)}
-                            className="bg-transparent focus:outline-none font-semibold text-[#2C1810]"
+                            className="bg-transparent focus:outline-none font-semibold text-[#2C1810] text-xs cursor-pointer"
                         >
                             <option value="newest">Newest Arrivals</option>
                             <option value="price_asc">Price: Low to High</option>
@@ -314,7 +314,7 @@ export const Shop = () => {
                             </button>
                         </div>
                     ) : (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                             {filteredProducts.map((prod) => {
                                 const inWishlist = isInWishlist(prod.id);
                                 return (
@@ -322,75 +322,78 @@ export const Shop = () => {
                                         key={prod.id}
                                         className="bg-white rounded-2xl border border-[#E8DFD8] overflow-hidden shadow-xs hover:shadow-xl transition duration-300 flex flex-col justify-between group"
                                     >
-                                        <div className="relative h-72 overflow-hidden bg-[#FAF6F0]">
+                                        <div className="relative h-44 sm:h-72 overflow-hidden bg-[#FAF6F0]">
                                             <img
                                                 src={prod.images?.[0]}
                                                 alt={prod.name}
                                                 onError={handleImageError}
                                                 className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                                             />
-                                            <div className="absolute top-3 left-3 flex flex-col gap-1">
+                                            <div className="absolute top-2 left-2 sm:top-3 sm:left-3 flex flex-col gap-1">
                                                 {prod.subcategory && (
-                                                    <span className="bg-[#2C1810] text-[#D4AF37] text-[10px] font-bold uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                                    <span className="bg-[#2C1810] text-[#D4AF37] text-[8px] sm:text-[10px] font-bold uppercase px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full shadow-xs">
                                                         {prod.subcategory}
                                                     </span>
                                                 )}
                                                 {prod.discountPercent > 0 && (
-                                                    <span className="bg-red-600 text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded-full shadow-xs">
+                                                    <span className="bg-red-600 text-white text-[8px] sm:text-[10px] font-bold uppercase px-1.5 py-0.5 sm:px-2 rounded-full shadow-xs">
                                                         {prod.discountPercent}% OFF
                                                     </span>
                                                 )}
                                             </div>
 
-                                            <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-90 sm:opacity-0 group-hover:opacity-100 transition duration-300">
+                                            <div className="absolute top-2 right-2 sm:top-3 sm:right-3 flex flex-col gap-1.5 sm:gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition duration-300">
                                                 <button
                                                     onClick={() => toggleWishlist(prod)}
-                                                    className={`p-2.5 rounded-full shadow-md backdrop-blur-xs transition ${inWishlist ? 'bg-red-50 text-red-500' : 'bg-white/90 text-gray-700 hover:text-black'
+                                                    className={`p-1.5 sm:p-2.5 rounded-full shadow-md backdrop-blur-xs transition ${inWishlist ? 'bg-red-50 text-red-500' : 'bg-white/90 text-gray-700 hover:text-black'
                                                         }`}
+                                                    aria-label="Wishlist"
                                                 >
-                                                    <Heart className={`w-4 h-4 ${inWishlist ? 'fill-red-500' : ''}`} />
+                                                    <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${inWishlist ? 'fill-red-500' : ''}`} />
                                                 </button>
                                                 <button
                                                     onClick={() => setQuickViewProduct(prod)}
-                                                    className="p-2.5 bg-white/90 text-gray-700 hover:text-black rounded-full shadow-md backdrop-blur-xs transition"
+                                                    className="p-1.5 sm:p-2.5 bg-white/90 text-gray-700 hover:text-black rounded-full shadow-md backdrop-blur-xs transition hidden sm:flex"
+                                                    aria-label="Quick View"
                                                 >
-                                                    <Eye className="w-4 h-4" />
+                                                    <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                                                 </button>
                                             </div>
                                         </div>
 
-                                        <div className="p-4 flex-1 flex flex-col justify-between">
+                                        <div className="p-3 sm:p-4 flex-1 flex flex-col justify-between">
                                             <div>
-                                                <span className="text-[10px] font-semibold text-[#9E7B82] uppercase tracking-wider">{prod.brand}</span>
+                                                <span className="text-[9px] sm:text-[10px] font-semibold text-[#9E7B82] uppercase tracking-wider">{prod.brand}</span>
                                                 <h3
                                                     onClick={() => navigate(`/product/${prod.id}`)}
-                                                    className="font-serif font-bold text-sm text-[#2C1810] mt-0.5 hover:text-[#D4AF37] cursor-pointer line-clamp-1 transition"
+                                                    className="font-serif font-bold text-xs sm:text-sm text-[#2C1810] mt-0.5 hover:text-[#D4AF37] cursor-pointer line-clamp-1 transition"
                                                 >
                                                     {prod.name}
                                                 </h3>
-                                                <div className="flex items-center gap-1.5 mt-1">
-                                                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                                                    <span className="text-xs font-semibold">{prod.rating}</span>
-                                                    <span className="text-[11px] text-gray-400">({prod.reviewCount})</span>
+                                                <div className="flex items-center gap-1 mt-1">
+                                                    <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400 text-amber-400" />
+                                                    <span className="text-[11px] sm:text-xs font-semibold">{prod.rating}</span>
+                                                    <span className="text-[10px] sm:text-[11px] text-gray-400">({prod.reviewCount})</span>
                                                 </div>
                                             </div>
 
-                                            <div className="mt-4 pt-3 border-t border-[#F4EBE1] flex items-center justify-between">
+                                            <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-[#F4EBE1] flex items-center justify-between">
                                                 <div>
-                                                    <span className="text-sm font-bold text-[#2C1810]">
+                                                    <span className="text-xs sm:text-sm font-bold text-[#2C1810]">
                                                         Rs. {prod.price.toLocaleString()}
                                                     </span>
                                                     {prod.originalPrice > prod.price && (
-                                                        <span className="text-xs text-gray-400 line-through block text-[11px]">
+                                                        <span className="text-[10px] sm:text-xs text-gray-400 line-through block">
                                                             Rs. {prod.originalPrice.toLocaleString()}
                                                         </span>
                                                     )}
                                                 </div>
                                                 <button
                                                     onClick={() => addToCart(prod)}
-                                                    className="bg-[#FAF6F0] border border-[#E8DFD8] text-[#2C1810] hover:bg-[#2C1810] hover:text-[#FAF6F0] p-2.5 rounded-full transition shadow-xs"
+                                                    className="bg-[#FAF6F0] border border-[#E8DFD8] text-[#2C1810] hover:bg-[#2C1810] hover:text-[#FAF6F0] p-1.5 sm:p-2.5 rounded-full transition shadow-xs"
+                                                    aria-label="Add to Bag"
                                                 >
-                                                    <ShoppingBag className="w-4 h-4" />
+                                                    <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                                                 </button>
                                             </div>
                                         </div>
@@ -402,6 +405,96 @@ export const Shop = () => {
                 </div>
 
             </div>
+
+            {/* Mobile Filter & Refine Drawer */}
+            {isFilterDrawerOpen && (
+                <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex justify-end lg:hidden">
+                    <div className="w-[85vw] max-w-sm bg-[#FDFBF7] h-full p-5 sm:p-6 shadow-2xl flex flex-col justify-between overflow-y-auto animate-fade-in">
+                        <div className="space-y-6">
+                            <div className="flex items-center justify-between pb-4 border-b border-[#E8DFD8]">
+                                <h3 className="font-serif font-bold text-lg text-[#2C1810] flex items-center gap-2">
+                                    <SlidersHorizontal className="w-5 h-5 text-[#D4AF37]" /> Filter &amp; Refine
+                                </h3>
+                                <button
+                                    onClick={() => setIsFilterDrawerOpen(false)}
+                                    className="p-1.5 text-gray-400 hover:text-black rounded-full"
+                                    aria-label="Close Filter"
+                                >
+                                    <X className="w-5 h-5" />
+                                </button>
+                            </div>
+
+                            {/* Price Filter */}
+                            <div className="space-y-2">
+                                <label className="text-xs font-bold uppercase tracking-wider text-[#2C1810] block">
+                                    Max Price: Rs. {priceRange[1].toLocaleString()}
+                                </label>
+                                <input
+                                    type="range"
+                                    min="1000"
+                                    max="30000"
+                                    step="500"
+                                    value={priceRange[1]}
+                                    onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
+                                    className="w-full accent-[#D4AF37]"
+                                />
+                                <div className="flex justify-between text-[11px] text-gray-400 font-medium">
+                                    <span>Rs. 1,000</span>
+                                    <span>Rs. 30,000</span>
+                                </div>
+                            </div>
+
+                            {/* Brand Filter */}
+                            <div className="space-y-2 pt-4 border-t border-[#F4EBE1]">
+                                <label className="text-xs font-bold uppercase tracking-wider text-[#2C1810] block">Brand</label>
+                                <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1">
+                                    {allBrands.map((b) => (
+                                        <label key={b} className="flex items-center gap-2 text-xs text-gray-700 cursor-pointer hover:text-[#2C1810]">
+                                            <input
+                                                type="radio"
+                                                name="mobile-brand"
+                                                checked={selectedBrand === b}
+                                                onChange={() => setSelectedBrand(b)}
+                                                className="accent-[#D4AF37]"
+                                            />
+                                            <span>{b}</span>
+                                        </label>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Stock Filter */}
+                            <div className="pt-4 border-t border-[#F4EBE1]">
+                                <label className="flex items-center gap-2 text-xs font-semibold text-gray-700 cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={onlyInStock}
+                                        onChange={(e) => setOnlyInStock(e.target.checked)}
+                                        className="accent-[#D4AF37] rounded"
+                                    />
+                                    <span>In Stock Items Only</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div className="pt-6 border-t border-[#E8DFD8] flex gap-3">
+                            <button
+                                onClick={clearAllFilters}
+                                className="flex-1 bg-white border border-[#E8DFD8] text-[#2C1810] py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-gray-50"
+                            >
+                                Reset All
+                            </button>
+                            <button
+                                onClick={() => setIsFilterDrawerOpen(false)}
+                                className="flex-1 bg-[#2C1810] text-[#FAF6F0] py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-[#362219]"
+                            >
+                                Apply Filters
+                            </button>
+                        </div>
+                    </div>
+                    <div className="flex-1" onClick={() => setIsFilterDrawerOpen(false)} />
+                </div>
+            )}
 
         </div>
     );

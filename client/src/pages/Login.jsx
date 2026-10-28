@@ -43,12 +43,12 @@ export const Login = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto px-4 py-16 space-y-8 animate-fade-in">
+        <div className="max-w-md mx-auto px-4 py-8 sm:py-16 space-y-6 sm:space-y-8 animate-fade-in">
 
             {/* Header */}
             <div className="text-center space-y-2">
                 <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#9E7B82]">Vellora Boutique</span>
-                <h1 className="font-serif text-3xl font-bold text-[#2C1810]">
+                <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#2C1810]">
                     {isRegister ? 'Create Your Account' : 'Customer Sign In'}
                 </h1>
                 <p className="text-xs text-gray-500">
@@ -87,7 +87,7 @@ export const Login = () => {
             </div>
 
             {/* Main Form */}
-            <div className="bg-white p-8 rounded-3xl border border-[#E8DFD8] shadow-lg space-y-6">
+            <div className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#E8DFD8] shadow-lg space-y-6">
 
                 {/* Tab Switcher */}
                 <div className="flex border-b border-[#E8DFD8]">

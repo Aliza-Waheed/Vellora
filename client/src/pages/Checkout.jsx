@@ -108,25 +108,25 @@ export const Checkout = () => {
         const waUrl = `https://wa.me/923001234567?text=${waText}`;
 
         return (
-            <div className="max-w-3xl mx-auto px-4 py-16 space-y-8 animate-fade-in">
-                <div className="bg-white p-8 rounded-3xl border border-[#E8DFD8] shadow-xl text-center space-y-6">
-                    <div className="w-20 h-20 bg-emerald-50 border-2 border-emerald-500 rounded-full flex items-center justify-center mx-auto text-emerald-600">
-                        <CheckCircle2 className="w-10 h-10" />
+            <div className="max-w-3xl mx-auto px-3 sm:px-6 py-8 sm:py-16 space-y-6 sm:space-y-8 animate-fade-in">
+                <div className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#E8DFD8] shadow-xl text-center space-y-5 sm:space-y-6">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-emerald-50 border-2 border-emerald-500 rounded-full flex items-center justify-center mx-auto text-emerald-600">
+                        <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
                     </div>
 
                     <div>
-                        <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#D4AF37]">Order Confirmed</span>
-                        <h1 className="font-serif text-3xl font-bold text-[#2C1810] mt-1">Thank You For Your Order!</h1>
-                        <p className="text-xs text-gray-600 mt-2">
+                        <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.3em] text-[#D4AF37]">Order Confirmed</span>
+                        <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#2C1810] mt-1">Thank You For Your Order!</h1>
+                        <p className="text-xs text-gray-600 mt-1.5 sm:mt-2">
                             Your order has been received and is being processed by our boutique fulfillment team.
                         </p>
                     </div>
 
                     {/* Order Reference Box */}
-                    <div className="bg-[#FAF6F0] p-4 rounded-2xl border border-[#E8DFD8] max-w-md mx-auto flex items-center justify-between">
+                    <div className="bg-[#FAF6F0] p-3.5 sm:p-4 rounded-2xl border border-[#E8DFD8] max-w-md mx-auto flex items-center justify-between">
                         <div className="text-left">
                             <span className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Order Reference ID</span>
-                            <p className="font-serif font-bold text-lg text-[#2C1810]">{createdOrder.id}</p>
+                            <p className="font-serif font-bold text-base sm:text-lg text-[#2C1810]">{createdOrder.id}</p>
                         </div>
                         <button
                             onClick={() => {
@@ -142,13 +142,13 @@ export const Checkout = () => {
                     </div>
 
                     {/* Order Details Breakdown */}
-                    <div className="text-left bg-white p-6 rounded-2xl border border-[#E8DFD8] space-y-4">
+                    <div className="text-left bg-white p-4 sm:p-6 rounded-2xl border border-[#E8DFD8] space-y-4">
                         <h3 className="font-serif font-bold text-base text-[#2C1810]">Order Summary</h3>
                         <div className="space-y-2">
                             {createdOrder.items.map((item, idx) => (
                                 <div key={idx} className="flex justify-between text-xs py-1 border-b border-[#F4EBE1]">
-                                    <span>{item.name} ({item.variant}) x {item.quantity}</span>
-                                    <span className="font-semibold">Rs. {(item.price * item.quantity).toLocaleString()}</span>
+                                    <span className="truncate max-w-[200px] sm:max-w-none">{item.name} ({item.variant}) x {item.quantity}</span>
+                                    <span className="font-semibold shrink-0">Rs. {(item.price * item.quantity).toLocaleString()}</span>
                                 </div>
                             ))}
                         </div>
@@ -160,28 +160,28 @@ export const Checkout = () => {
                             </div>
                             <div className="flex justify-between">
                                 <span>Shipping Address:</span>
-                                <span className="font-semibold text-[#2C1810]">{createdOrder.customer.address}, {createdOrder.customer.city}</span>
+                                <span className="font-semibold text-[#2C1810] text-right truncate max-w-[200px] sm:max-w-none">{createdOrder.customer.address}, {createdOrder.customer.city}</span>
                             </div>
                             <div className="flex justify-between text-sm font-bold text-[#2C1810] pt-2 border-t border-[#F4EBE1]">
-                                <span>Total Paid / COD Amount:</span>
+                                <span>Total Amount:</span>
                                 <span className="text-[#BF953F]">Rs. {createdOrder.totalAmount.toLocaleString()}</span>
                             </div>
                         </div>
                     </div>
 
                     {/* WhatsApp Notification Shortcut */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2 sm:pt-4">
                         <a
                             href={waUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-emerald-600 text-white px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-emerald-700 transition flex items-center justify-center gap-2 shadow-md"
+                            className="bg-emerald-600 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-emerald-700 transition flex items-center justify-center gap-2 shadow-md w-full sm:w-auto"
                         >
-                            <PhoneCall className="w-4 h-4" /> Notify Dispatch Team on WhatsApp
+                            <PhoneCall className="w-4 h-4" /> WhatsApp Dispatch Team
                         </a>
                         <Link
                             to={`/track-order?id=${createdOrder.id}`}
-                            className="bg-[#2C1810] text-[#FAF6F0] px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#362219] transition flex items-center justify-center gap-2"
+                            className="bg-[#2C1810] text-[#FAF6F0] px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#362219] transition flex items-center justify-center gap-2 w-full sm:w-auto"
                         >
                             Track Order Status
                         </Link>
@@ -193,21 +193,21 @@ export const Checkout = () => {
     }
 
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-6 sm:space-y-8">
 
             {/* Header */}
-            <div className="border-b border-[#E8DFD8] pb-6">
-                <span className="text-xs font-bold uppercase tracking-[0.3em] text-[#9E7B82]">Secure Checkout</span>
-                <h1 className="font-serif text-3xl font-bold text-[#2C1810] mt-0.5">Shipping &amp; Payment Details</h1>
+            <div className="border-b border-[#E8DFD8] pb-4 sm:pb-6">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#9E7B82]">Secure Checkout</span>
+                <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#2C1810] mt-0.5">Shipping &amp; Payment Details</h1>
             </div>
 
-            <form onSubmit={handlePlaceOrder} className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <form onSubmit={handlePlaceOrder} className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-10">
 
                 {/* Left Column: Contact & Address Form */}
-                <div className="lg:col-span-2 space-y-8">
+                <div className="lg:col-span-2 space-y-6 sm:space-y-8">
 
                     {/* Step 1: Customer Info */}
-                    <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E8DFD8] space-y-4">
+                    <div className="bg-white p-4 sm:p-8 rounded-2xl border border-[#E8DFD8] space-y-4">
                         <h3 className="font-serif font-bold text-lg text-[#2C1810] flex items-center gap-2">
                             <span className="w-6 h-6 bg-[#2C1810] text-[#D4AF37] rounded-full text-xs flex items-center justify-center font-bold">1</span>
                             Customer &amp; Shipping Address

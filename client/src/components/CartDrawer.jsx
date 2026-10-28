@@ -46,32 +46,33 @@ export const CartDrawer = () => {
                 onClick={() => setIsCartOpen(false)}
             />
 
-            <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
                 <div className="w-screen max-w-md bg-[#FDFBF7] shadow-2xl flex flex-col justify-between border-l border-[#E8DFD8] animate-fade-in">
 
                     {/* Header */}
-                    <div className="p-6 border-b border-[#E8DFD8] flex items-center justify-between bg-white">
+                    <div className="p-4 sm:p-6 border-b border-[#E8DFD8] flex items-center justify-between bg-white">
                         <div className="flex items-center gap-2">
                             <ShoppingBag className="w-5 h-5 text-[#2C1810]" />
-                            <h2 className="font-serif text-xl font-bold tracking-wide text-[#2C1810]">Your Shopping Bag</h2>
-                            <span className="text-xs bg-[#FAF6F0] text-[#9E7B82] px-2 py-0.5 rounded-full border border-[#E8DFD8]">
+                            <h2 className="font-serif text-lg sm:text-xl font-bold tracking-wide text-[#2C1810]">Your Shopping Bag</h2>
+                            <span className="text-[11px] sm:text-xs bg-[#FAF6F0] text-[#9E7B82] px-2 py-0.5 rounded-full border border-[#E8DFD8]">
                                 {cart.length} {cart.length === 1 ? 'item' : 'items'}
                             </span>
                         </div>
                         <button
                             onClick={() => setIsCartOpen(false)}
                             className="p-1.5 text-gray-400 hover:text-gray-700 rounded-full hover:bg-gray-100 transition"
+                            aria-label="Close Bag"
                         >
-                            <X className="w-6 h-6" />
+                            <X className="w-5 h-5 sm:w-6 sm:h-6" />
                         </button>
                     </div>
 
                     {/* Free Shipping Progress Indicator */}
-                    <div className="bg-[#FAF6F0] px-6 py-3 border-b border-[#E8DFD8]">
+                    <div className="bg-[#FAF6F0] px-4 py-2.5 sm:px-6 sm:py-3 border-b border-[#E8DFD8]">
                         {shippingFee === 0 ? (
                             <p className="text-xs font-semibold text-emerald-700 flex items-center gap-1.5">
-                                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                                Congratulations! You qualified for FREE Express Shipping across Pakistan!
+                                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                                <span>Congratulations! You qualified for FREE Express Shipping across Pakistan!</span>
                             </p>
                         ) : (
                             <div>
@@ -90,15 +91,15 @@ export const CartDrawer = () => {
                     </div>
 
                     {/* Cart Item List */}
-                    <div className="flex-1 overflow-y-auto p-6 space-y-4">
+                    <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-3 sm:space-y-4">
                         {cart.length === 0 ? (
                             <div className="h-full flex flex-col items-center justify-center text-center py-12">
-                                <div className="w-20 h-20 bg-[#FAF6F0] rounded-full flex items-center justify-center text-gray-300 mb-4 border border-[#E8DFD8]">
-                                    <ShoppingBag className="w-10 h-10 text-[#9E7B82]" />
+                                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#FAF6F0] rounded-full flex items-center justify-center text-gray-300 mb-4 border border-[#E8DFD8]">
+                                    <ShoppingBag className="w-8 h-8 sm:w-10 sm:h-10 text-[#9E7B82]" />
                                 </div>
                                 <h3 className="font-serif text-lg font-bold text-[#2C1810]">Your bag is empty</h3>
                                 <p className="text-xs text-gray-500 mt-1 max-w-xs">
-                                    Discover our festive Pakistani dresses, pure chiffon ensembles & royal velvet collections.
+                                    Discover our festive Pakistani dresses, pure chiffon ensembles &amp; royal velvet collections.
                                 </p>
                                 <button
                                     onClick={() => {
@@ -112,25 +113,26 @@ export const CartDrawer = () => {
                             </div>
                         ) : (
                             cart.map((item) => (
-                                <div key={item.key} className="flex gap-4 p-3 bg-white rounded-xl border border-[#E8DFD8] shadow-xs">
+                                <div key={item.key} className="flex gap-3 sm:gap-4 p-2.5 sm:p-3 bg-white rounded-xl border border-[#E8DFD8] shadow-xs">
                                     <img
                                         src={item.image}
                                         alt={item.name}
                                         onError={handleImageError}
-                                        className="w-20 h-24 object-cover rounded-lg border border-[#E8DFD8]"
+                                        className="w-16 h-20 sm:w-20 sm:h-24 object-cover rounded-lg border border-[#E8DFD8] shrink-0"
                                     />
-                                    <div className="flex-1 flex flex-col justify-between">
+                                    <div className="flex-1 flex flex-col justify-between min-w-0">
                                         <div>
                                             <div className="flex justify-between items-start gap-1">
-                                                <h4 className="font-serif font-bold text-sm text-[#2C1810] line-clamp-1">{item.name}</h4>
+                                                <h4 className="font-serif font-bold text-xs sm:text-sm text-[#2C1810] line-clamp-1">{item.name}</h4>
                                                 <button
                                                     onClick={() => removeFromCart(item.key)}
-                                                    className="text-gray-400 hover:text-red-500 transition p-1"
+                                                    className="text-gray-400 hover:text-red-500 transition p-1 shrink-0"
+                                                    aria-label="Remove item"
                                                 >
-                                                    <Trash2 className="w-4 h-4" />
+                                                    <Trash2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                                                 </button>
                                             </div>
-                                            <p className="text-xs text-[#9E7B82] font-medium mt-0.5">Variant: {item.variant}</p>
+                                            <p className="text-[11px] sm:text-xs text-[#9E7B82] font-medium mt-0.5">Variant: {item.variant}</p>
                                             <p className="text-xs font-bold text-[#2C1810] mt-1">
                                                 Rs. {item.price.toLocaleString()}
                                             </p>
@@ -164,7 +166,7 @@ export const CartDrawer = () => {
 
                     {/* Footer & Checkout Summary */}
                     {cart.length > 0 && (
-                        <div className="p-6 border-t border-[#E8DFD8] bg-white space-y-4">
+                        <div className="p-4 sm:p-6 border-t border-[#E8DFD8] bg-white space-y-3 sm:space-y-4">
 
                             {/* Coupon Form */}
                             {appliedCoupon ? (

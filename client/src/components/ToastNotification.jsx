@@ -8,8 +8,8 @@ export const ToastNotification = () => {
     if (!toastMessage) return null;
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 max-w-sm bg-[#2C1810] text-[#FAF6F0] px-5 py-3.5 rounded-2xl shadow-2xl border border-[#D4AF37] flex items-center gap-3 animate-fade-in">
-            <div className="p-2 bg-[#D4AF37]/20 text-[#D4AF37] rounded-full">
+        <div className="fixed bottom-4 sm:bottom-6 left-4 right-4 sm:left-auto sm:right-6 z-50 sm:max-w-sm bg-[#2C1810] text-[#FAF6F0] px-4 sm:px-5 py-3 sm:py-3.5 rounded-2xl shadow-2xl border border-[#D4AF37] flex items-center gap-3 animate-fade-in">
+            <div className="p-2 bg-[#D4AF37]/20 text-[#D4AF37] rounded-full shrink-0">
                 <Sparkles className="w-5 h-5 animate-pulse" />
             </div>
             <div>

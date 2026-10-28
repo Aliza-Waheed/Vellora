@@ -69,7 +69,7 @@ export const TrackOrder = () => {
             </div>
 
             {/* Search Bar Form */}
-            <form onSubmit={handleSearch} className="max-w-lg mx-auto flex gap-3">
+            <form onSubmit={handleSearch} className="max-w-lg mx-auto flex flex-col sm:flex-row gap-3">
                 <div className="relative flex-1">
                     <Search className="w-5 h-5 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
                     <input
@@ -84,7 +84,7 @@ export const TrackOrder = () => {
                 <button
                     type="submit"
                     disabled={loading}
-                    className="bg-[#2C1810] text-[#FAF6F0] px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-[#362219] transition shadow-md"
+                    className="bg-[#2C1810] text-[#FAF6F0] px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-[#362219] transition shadow-md w-full sm:w-auto"
                 >
                     {loading ? 'Searching...' : 'Track'}
                 </button>

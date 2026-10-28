@@ -19,9 +19,9 @@ export const Footer = () => {
         <footer className="bg-[#2C1810] text-[#FAF6F0] pt-16 pb-8 border-t border-[#D4AF37]/30">
 
             {/* Value Proposition Badges */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 border-b border-[#362219]">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
-                    <div className="flex items-center justify-center md:justify-start gap-4">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 sm:pb-12 border-b border-[#362219]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8 text-center sm:text-left">
+                    <div className="flex items-center justify-center sm:justify-start gap-3.5 sm:gap-4">
                         <div className="p-3 bg-[#362219] text-[#D4AF37] rounded-full border border-[#D4AF37]/20">
                             <Truck className="w-6 h-6" />
                         </div>
@@ -31,7 +31,7 @@ export const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="flex items-center justify-center md:justify-start gap-4">
+                    <div className="flex items-center justify-center sm:justify-start gap-4">
                         <div className="p-3 bg-[#362219] text-[#D4AF37] rounded-full border border-[#D4AF37]/20">
                             <ShieldCheck className="w-6 h-6" />
                         </div>
@@ -41,7 +41,7 @@ export const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="flex items-center justify-center md:justify-start gap-4">
+                    <div className="flex items-center justify-center sm:justify-start gap-4">
                         <div className="p-3 bg-[#362219] text-[#D4AF37] rounded-full border border-[#D4AF37]/20">
                             <RefreshCw className="w-6 h-6" />
                         </div>
@@ -51,7 +51,7 @@ export const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="flex items-center justify-center md:justify-start gap-4">
+                    <div className="flex items-center justify-center sm:justify-start gap-4">
                         <div className="p-3 bg-[#362219] text-[#D4AF37] rounded-full border border-[#D4AF37]/20">
                             <CreditCard className="w-6 h-6" />
                         </div>
@@ -152,12 +152,12 @@ export const Footer = () => {
             </div>
 
             {/* Bottom Bar & Payment Providers */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-[#362219] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-[#362219] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400 text-center md:text-left">
                 <p>© 2026 VELLORA Store. All rights reserved. Crafted for Pakistani Luxury Shopping.</p>
 
                 {/* Payment Badges */}
-                <div className="flex items-center gap-3">
-                    <span className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold">Accepted Payments:</span>
+                <div className="flex flex-wrap items-center justify-center md:justify-end gap-2">
+                    <span className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold w-full text-center sm:w-auto sm:text-left">Accepted:</span>
                     <span className="bg-[#362219] px-2 py-1 rounded text-[10px] font-bold text-[#D4AF37] border border-[#D4AF37]/20">Cash on Delivery</span>
                     <span className="bg-[#362219] px-2 py-1 rounded text-[10px] font-bold text-[#FAF6F0] border border-gray-700">Bank Transfer</span>
                     <span className="bg-emerald-950 px-2 py-1 rounded text-[10px] font-bold text-emerald-400 border border-emerald-800">Easypaisa</span>

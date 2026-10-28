@@ -82,23 +82,23 @@ export const ProductDetails = () => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-10 sm:space-y-16">
 
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-xs text-gray-500">
+            <nav className="flex items-center gap-2 text-xs text-gray-500 overflow-x-auto whitespace-nowrap">
                 <Link to="/" className="hover:text-[#2C1810]">Home</Link>
                 <span>/</span>
                 <Link to="/shop" className="hover:text-[#2C1810]">Shop</Link>
                 <span>/</span>
-                <span className="text-[#2C1810] font-semibold truncate max-w-xs">{product.name}</span>
+                <span className="text-[#2C1810] font-semibold truncate max-w-[200px] sm:max-w-xs">{product.name}</span>
             </nav>
 
             {/* Main Product Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
 
                 {/* Left Gallery Column */}
                 <div className="space-y-4">
-                    <div className="w-full h-[450px] sm:h-[550px] rounded-2xl overflow-hidden bg-white border border-[#E8DFD8] shadow-sm relative">
+                    <div className="w-full h-[340px] sm:h-[450px] lg:h-[550px] rounded-2xl overflow-hidden bg-white border border-[#E8DFD8] shadow-sm relative">
                         <img
                             src={product.images?.[selectedImageIndex] || product.images?.[0]}
                             alt={product.name}
@@ -106,7 +106,7 @@ export const ProductDetails = () => {
                             className="w-full h-full object-cover"
                         />
                         {product.discountPercent > 0 && (
-                            <span className="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold uppercase px-3 py-1 rounded-full shadow-md">
+                            <span className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-red-600 text-white text-xs font-bold uppercase px-2.5 py-1 rounded-full shadow-md">
                                 {product.discountPercent}% OFF
                             </span>
                         )}
@@ -114,12 +114,12 @@ export const ProductDetails = () => {
 
                     {/* Thumbnails */}
                     {product.images && product.images.length > 1 && (
-                        <div className="flex gap-3 overflow-x-auto pb-2">
+                        <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2">
                             {product.images.map((img, idx) => (
                                 <button
                                     key={idx}
                                     onClick={() => setSelectedImageIndex(idx)}
-                                    className={`w-20 h-20 rounded-xl overflow-hidden border-2 transition flex-shrink-0 ${selectedImageIndex === idx ? 'border-[#D4AF37] shadow-md' : 'border-[#E8DFD8] opacity-70 hover:opacity-100'
+                                    className={`w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden border-2 transition flex-shrink-0 ${selectedImageIndex === idx ? 'border-[#D4AF37] shadow-md' : 'border-[#E8DFD8] opacity-70 hover:opacity-100'
                                         }`}
                                 >
                                     <img src={img} alt="" onError={handleImageError} className="w-full h-full object-cover" />
@@ -134,7 +134,7 @@ export const ProductDetails = () => {
                     <div>
                         <div className="flex items-center justify-between">
                             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#9E7B82]">{product.brand}</span>
-                            <button onClick={() => toggleWishlist(product)} className="text-gray-400 hover:text-red-500 transition">
+                            <button onClick={() => toggleWishlist(product)} className="text-gray-400 hover:text-red-500 transition p-1">
                                 <Heart className={`w-6 h-6 ${inWishlist ? 'fill-red-500 text-red-500' : ''}`} />
                             </button>
                         </div>
@@ -142,35 +142,35 @@ export const ProductDetails = () => {
                         <h1 className="font-serif text-2xl sm:text-4xl font-bold text-[#2C1810] mt-1">{product.name}</h1>
 
                         {/* Rating */}
-                        <div className="flex items-center gap-2 mt-3">
+                        <div className="flex items-center gap-2 mt-2 sm:mt-3">
                             <div className="flex text-amber-400">
                                 {[...Array(5)].map((_, i) => (
                                     <Star key={i} className={`w-4 h-4 ${i < Math.floor(product.rating || 5) ? 'fill-amber-400' : 'text-gray-300'}`} />
                                 ))}
                             </div>
                             <span className="text-xs font-semibold text-[#2C1810]">{product.rating}</span>
-                            <span className="text-xs text-gray-400">({product.reviewCount || 15} verified customer reviews)</span>
+                            <span className="text-xs text-gray-400">({product.reviewCount || 15} reviews)</span>
                         </div>
 
                         {/* Price */}
-                        <div className="flex items-center gap-4 mt-4">
-                            <span className="text-3xl font-bold text-[#2C1810]">
+                        <div className="flex items-center gap-3 sm:gap-4 mt-3 sm:mt-4">
+                            <span className="text-2xl sm:text-3xl font-bold text-[#2C1810]">
                                 Rs. {currentPrice.toLocaleString()}
                             </span>
                             {product.originalPrice > product.price && (
-                                <span className="text-sm text-gray-400 line-through">
+                                <span className="text-xs sm:text-sm text-gray-400 line-through">
                                     Rs. {product.originalPrice.toLocaleString()}
                                 </span>
                             )}
                         </div>
 
-                        <p className="text-xs text-gray-600 mt-4 leading-relaxed">
+                        <p className="text-xs text-gray-600 mt-3 sm:mt-4 leading-relaxed">
                             {product.description}
                         </p>
 
                         {/* Variant Selectors */}
                         {product.variants && product.variants.length > 0 && (
-                            <div className="mt-6 space-y-3 pt-4 border-t border-[#F4EBE1]">
+                            <div className="mt-5 sm:mt-6 space-y-2 sm:space-y-3 pt-4 border-t border-[#F4EBE1]">
                                 <label className="block text-xs font-bold text-[#2C1810] uppercase tracking-wider">
                                     Select {product.variants[0].type}:
                                 </label>
@@ -179,7 +179,7 @@ export const ProductDetails = () => {
                                         <button
                                             key={v.id || idx}
                                             onClick={() => setSelectedVariantIndex(idx)}
-                                            className={`px-4 py-2 rounded-xl text-xs font-semibold border transition ${selectedVariantIndex === idx
+                                            className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs font-semibold border transition ${selectedVariantIndex === idx
                                                     ? 'bg-[#2C1810] text-[#FAF6F0] border-[#2C1810]'
                                                     : 'bg-white text-gray-700 border-[#E8DFD8] hover:border-[#D4AF37]'
                                                 }`}
@@ -192,7 +192,7 @@ export const ProductDetails = () => {
                         )}
 
                         {/* Quantity Selector */}
-                        <div className="mt-6 pt-4 border-t border-[#F4EBE1] flex items-center gap-4">
+                        <div className="mt-5 sm:mt-6 pt-4 border-t border-[#F4EBE1] flex items-center gap-4">
                             <label className="text-xs font-bold text-[#2C1810] uppercase tracking-wider">Quantity:</label>
                             <div className="flex items-center border border-[#E8DFD8] rounded-full bg-white px-3 py-1">
                                 <button
@@ -212,17 +212,17 @@ export const ProductDetails = () => {
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="mt-8 space-y-3">
-                            <div className="flex gap-4">
+                        <div className="mt-6 sm:mt-8 space-y-3">
+                            <div className="flex flex-col sm:flex-row gap-3">
                                 <button
                                     onClick={handleAddToCart}
-                                    className="flex-1 bg-[#FAF6F0] border-2 border-[#2C1810] text-[#2C1810] py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#2C1810] hover:text-[#FAF6F0] transition flex items-center justify-center gap-2"
+                                    className="flex-1 bg-[#FAF6F0] border-2 border-[#2C1810] text-[#2C1810] py-3 sm:py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#2C1810] hover:text-[#FAF6F0] transition flex items-center justify-center gap-2"
                                 >
                                     <ShoppingBag className="w-4 h-4 text-[#D4AF37]" /> Add to Bag
                                 </button>
                                 <button
                                     onClick={handleBuyNow}
-                                    className="flex-1 bg-gradient-to-r from-[#2C1810] to-[#362219] text-[#FAF6F0] py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:opacity-95 transition shadow-lg"
+                                    className="flex-1 bg-gradient-to-r from-[#2C1810] to-[#362219] text-[#FAF6F0] py-3 sm:py-3.5 rounded-full text-xs font-bold uppercase tracking-widest hover:opacity-95 transition shadow-lg text-center"
                                 >
                                     Buy Now
                                 </button>
@@ -230,17 +230,17 @@ export const ProductDetails = () => {
                         </div>
 
                         {/* Trust Badges */}
-                        <div className="mt-8 pt-6 border-t border-[#E8DFD8] grid grid-cols-3 gap-4 text-center text-xs text-gray-600">
-                            <div className="flex flex-col items-center gap-1">
-                                <Truck className="w-5 h-5 text-[#D4AF37]" />
+                        <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-[#E8DFD8] grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-center text-xs text-gray-600">
+                            <div className="flex sm:flex-col items-center justify-center gap-2 sm:gap-1 bg-[#FAF6F0]/60 p-2.5 rounded-xl sm:bg-transparent sm:p-0">
+                                <Truck className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
                                 <span className="font-semibold text-[11px]">Free Shipping &gt; Rs. 3,000</span>
                             </div>
-                            <div className="flex flex-col items-center gap-1">
-                                <ShieldCheck className="w-5 h-5 text-[#D4AF37]" />
+                            <div className="flex sm:flex-col items-center justify-center gap-2 sm:gap-1 bg-[#FAF6F0]/60 p-2.5 rounded-xl sm:bg-transparent sm:p-0">
+                                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
                                 <span className="font-semibold text-[11px]">100% Authentic Quality</span>
                             </div>
-                            <div className="flex flex-col items-center gap-1">
-                                <RefreshCw className="w-5 h-5 text-[#D4AF37]" />
+                            <div className="flex sm:flex-col items-center justify-center gap-2 sm:gap-1 bg-[#FAF6F0]/60 p-2.5 rounded-xl sm:bg-transparent sm:p-0">
+                                <RefreshCw className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
                                 <span className="font-semibold text-[11px]">7-Day Exchange</span>
                             </div>
                         </div>
@@ -250,8 +250,8 @@ export const ProductDetails = () => {
             </div>
 
             {/* Detailed Tabs: Description, Specs/Ingredients, Reviews */}
-            <div className="bg-white rounded-2xl border border-[#E8DFD8] p-6 sm:p-8 space-y-6">
-                <div className="flex border-b border-[#E8DFD8] gap-8">
+            <div className="bg-white rounded-2xl border border-[#E8DFD8] p-4 sm:p-8 space-y-6">
+                <div className="flex border-b border-[#E8DFD8] gap-4 sm:gap-8 overflow-x-auto whitespace-nowrap scrollbar-none pb-1">
                     <button
                         onClick={() => setActiveTab('description')}
                         className={`pb-3 text-xs font-bold uppercase tracking-wider border-b-2 transition ${activeTab === 'description' ? 'border-[#D4AF37] text-[#2C1810]' : 'border-transparent text-gray-400'

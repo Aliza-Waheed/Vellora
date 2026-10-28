@@ -227,8 +227,8 @@ export const AdminDashboard = () => {
                         </button>
                     </div>
 
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left text-xs text-gray-700">
+                    <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+                        <table className="w-full text-left text-xs text-gray-700 min-w-[640px]">
                             <thead className="bg-[#FAF6F0] text-[#2C1810] font-serif font-bold uppercase text-[10px] tracking-wider border-b border-[#E8DFD8]">
                                 <tr>
                                     <th className="p-3">Product</th>
@@ -282,8 +282,8 @@ export const AdminDashboard = () => {
                         <h3 className="font-serif font-bold text-lg text-[#2C1810]">Customer Orders ({orders.length})</h3>
                     </div>
 
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left text-xs text-gray-700">
+                    <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+                        <table className="w-full text-left text-xs text-gray-700 min-w-[650px]">
                             <thead className="bg-[#FAF6F0] text-[#2C1810] font-serif font-bold uppercase text-[10px] tracking-wider border-b border-[#E8DFD8]">
                                 <tr>
                                     <th className="p-3">Order ID</th>
@@ -410,7 +410,7 @@ export const AdminDashboard = () => {
                                 />
                             </div>
 
-                            <div className="grid grid-cols-2 gap-3">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 <div>
                                     <label className="block font-bold mb-1">Category</label>
                                     <select
@@ -445,7 +445,7 @@ export const AdminDashboard = () => {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-3 gap-3">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                                 <div>
                                     <label className="block font-bold mb-1">Price (Rs.)</label>
                                     <input

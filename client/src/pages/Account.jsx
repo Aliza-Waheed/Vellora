@@ -43,11 +43,11 @@ export const Account = () => {
                     <h1 className="font-serif text-3xl font-bold text-[#2C1810] mt-0.5">Welcome, {user.name}</h1>
                     <p className="text-xs text-gray-500 mt-1">{user.email} • {user.role === 'admin' ? '👑 Administrator' : 'Verified Customer'}</p>
                 </div>
-                <div className="flex gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-3">
                     {isAdmin && (
                         <Link
                             to="/admin"
-                            className="bg-[#D4AF37] text-[#2C1810] px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-[#b8860b] transition shadow-xs"
+                            className="bg-[#D4AF37] text-[#2C1810] px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-[#b8860b] transition shadow-xs text-center"
                         >
                             Admin Portal
                         </Link>
@@ -57,7 +57,7 @@ export const Account = () => {
                             logout();
                             navigate('/login');
                         }}
-                        className="bg-white border border-[#E8DFD8] text-red-600 px-5 py-2.5 rounded-full text-xs font-semibold hover:bg-red-50 transition flex items-center gap-1.5"
+                        className="bg-white border border-[#E8DFD8] text-red-600 px-4 sm:px-5 py-2.5 rounded-full text-xs font-semibold hover:bg-red-50 transition flex items-center justify-center gap-1.5"
                     >
                         <LogOut className="w-4 h-4" /> Sign Out
                     </button>
@@ -127,16 +127,16 @@ export const Account = () => {
                                             </p>
                                         </div>
 
-                                        <div className="flex gap-2">
+                                        <div className="flex flex-wrap sm:flex-nowrap gap-2">
                                             <Link
                                                 to={`/track-order?id=${ord.id}`}
-                                                className="bg-white border border-[#E8DFD8] text-[#2C1810] px-3.5 py-1.5 rounded-lg text-xs font-semibold hover:border-[#D4AF37] transition"
+                                                className="flex-1 sm:flex-none text-center bg-white border border-[#E8DFD8] text-[#2C1810] px-3.5 py-1.5 rounded-lg text-xs font-semibold hover:border-[#D4AF37] transition"
                                             >
                                                 Track Status
                                             </Link>
                                             <button
                                                 onClick={() => setSelectedOrder(ord)}
-                                                className="bg-[#2C1810] text-[#FAF6F0] px-3.5 py-1.5 rounded-lg text-xs font-semibold hover:bg-[#362219] transition flex items-center gap-1"
+                                                className="flex-1 sm:flex-none justify-center bg-[#2C1810] text-[#FAF6F0] px-3.5 py-1.5 rounded-lg text-xs font-semibold hover:bg-[#362219] transition flex items-center gap-1"
                                             >
                                                 <Eye className="w-3.5 h-3.5" /> Details
                                             </button>
